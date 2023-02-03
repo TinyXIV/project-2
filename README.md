@@ -1,29 +1,33 @@
 # UOCIS322 - Project 2 #
 
-This project will get you started with Docker and Flask. You need to have Docker set up on your machine to complete this project. You can alternatively use the machine we talked about in class.
+Joshua Muzi
+jmuzi@uoregon.edu
+
+
+#This project uses docker flask app in order to run app.py and iterate through server file requests using two port numbers 
+#one being run on the docker.
+#Given forbidden or file which do not reside in pages/ a error in accordance is given to the server using abort() that sends the @app
+#to the next error status that corresponds and executes that error function defined in app.py
+#if file is found in /paths it is returned from the hello() func and displays the found file
+
+
+
+
 
 ## Getting started
 
-* Read every line of the docker file.
-
-* Go to `web/`  and read every line of the flask app.
-
-* **Go back to the main directory**, and build the simple flask app image using
+* **Go to the main directory**, and build the simple flask app image using
 
   ```
-  docker build -t some-image-name .
+  docker build -t myimage .
   ```
-  **Make sure to use a unique name if you're running on testium.**
+
 * Run the container using
 
   ```
-  docker run -d -p 5001:5000 some-image-name
+  docker run -d -p 5001:5000 myimage
   ```
 
-* Launch `http://hostname:5001` using your web browser and check the output "UOCIS docker demo!".<br>
-**Q:** What's `5001` and what's `5000`?<br>
-**A:** the `-p` argument opens a container port to another on your local machine. Think of the container as its own separate machine, and assume you start a web server on port `5000` there. To access the web server from your machine, you forward container's `5000` to YOUR `5001`.<br>
-To understand this better, try chaning the `5001` when starting your container, or `5000`. But remember, `5000` should be the port Flask uses (see `web/app.py`).
 
 ## Tasks
 
@@ -35,11 +39,7 @@ The goal of this project is to implement a "file checking" logic, while also add
 
     ⚠️ NOTE: if a request contains illegal characters (`..` or `~`), the response should be 403.
 
-* Add a configuration parsing logic (like project 0) to `app.py` so that it looks for `credentials.ini`, and if not found `default.ini`, and reads the port number and debug mode from the file found.
-
 * Update your name and email in `Dockerfile`. Update `README` with your name, info, and a brief description of the project.
-
-* You will submit your credentials.ini in Canvas. It should include your name and repo URL.
 
 
 ## Grading Rubric
